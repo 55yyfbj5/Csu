@@ -1,0 +1,101 @@
+{
+    "Vulkan": {
+        "type": "find_package",
+        "find_args": "Vulkan REQUIRED",
+        "link_libraries": [
+            "Vulkan::Vulkan"
+        ],
+        "compile_definitions": []
+    },
+    "Shaderc": {
+        "type": "find_library",
+        "var_name": "SHADERC_LIB",
+        "names": [
+            "shaderc_shared",
+            "shaderc"
+        ],
+        "link_libraries": [
+            "${SHADERC_LIB}"
+        ],
+        "compile_definitions": []
+    },
+    "volk": {
+        "type": "fetch_content",
+        "repo": "https://github.com/zeux/volk.git",
+        "tag": "master",
+        "options": {
+            "VOLK_INSTALL": "OFF"
+        },
+        "link_libraries": [
+            "volk::volk"
+        ],
+        "compile_definitions": [
+            "VK_NO_PROTOTYPES"
+        ],
+        "test_code": {
+            "main.cpp": {
+                "position": "line 3",
+                "code": "#define VOLK_IMPLEMENTATION\n#include <volk.h>"
+            }
+        }
+    },
+    "Slint": {
+        "type": "fetch_content",
+        "repo": "https://github.com/slint-ui/slint",
+        "tag": "v1.18.0",
+        "options": {},
+        "link_libraries": [
+            "Slint"
+        ],
+        "compile_definitions": []
+    },
+    "VulkanMemoryAllocator": {
+        "type": "fetch_content",
+        "repo": "https://github.com/GPUOpen-LibrariesAndSDKs/VulkanMemoryAllocator.git",
+        "tag": "master",
+        "options": {
+            "VMA_BUILD_DOCUMENTATION": "OFF",
+            "VMA_BUILD_SAMPLE": "OFF"
+        },
+        "link_libraries": [
+            "VulkanMemoryAllocator"
+        ],
+        "compile_definitions": []
+    },
+    "SDL3": {
+        "type": "fetch_content",
+        "repo": "https://github.com/libsdl-org/SDL.git",
+        "tag": "main",
+        "options": {
+            "SDL_TEST": "OFF",
+            "SDL_EXAMPLES": "OFF"
+        },
+        "link_libraries": [
+            "SDL3::SDL3"
+        ],
+        "special_target_logic": "if(TARGET SDL3::SDL3_main)\n    target_link_libraries(${PROJECT_NAME} PRIVATE SDL3::SDL3_main SDL3::SDL3)\nelseif(TARGET SDL3_main)\n    target_link_libraries(${PROJECT_NAME} PRIVATE SDL3_main SDL3::SDL3)\nelse()\n    target_link_libraries(${PROJECT_NAME} PRIVATE SDL3::SDL3)\nendif()"
+    },
+    "glad": {
+        "type": "fetch_content",
+        "repo": "https://github.com/Dav1dde/glad.git",
+        "tag": "v0.1.36",
+        "options": {
+            "GLAD_PROFILE": "core",
+            "GLAD_API": "gl=4.6"
+        },
+        "link_libraries": [
+            "glad"
+        ],
+        "compile_definitions": [
+            "GLAD_GL_CLI"
+        ]
+    },
+    "glfw": {
+        "type": "find_package",
+        "find_args": "glfw3 3.3 REQUIRED",
+        "link_libraries": [
+            "glfw"
+        ],
+        "compile_definitions": []
+    }
+}

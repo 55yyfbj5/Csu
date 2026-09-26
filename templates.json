@@ -1,0 +1,38 @@
+{
+    "vulkan_app": {
+        "project_name": "VulkanApp",
+        "cpp_standard": "20",
+        "folders": {
+            "src": "src",
+            "include": "include",
+            "assets": "assets",
+            "shaders": "none"
+        },
+        "find_libraries": [
+            "Vulkan",
+            "Shaderc"
+        ],
+        "fetch_libraries": [
+            "SDL3",
+            "volk",
+            "VulkanMemoryAllocator"
+        ],
+        "copy_assets_post_build": true
+    },
+    "opengl_app": {
+        "project_name": "OpenGLApp",
+        "cpp_standard": "17",
+        "folders": {
+            "src": "src",
+            "include": "include",
+            "assets": "assets"
+        },
+        "find_libraries": [
+            "glfw"
+        ],
+        "fetch_libraries": [
+            "glad"
+        ],
+        "copy_assets_post_build": true
+    }
+}
