@@ -1,0 +1,35 @@
+{
+    "Graphics" : {
+        "Screen Mode" : "PLACEHOLDER",
+        "Resolution" : 0,
+        "BackGround Dim" : 0,
+        "Renderer" : "SDL",
+        "Frame Limit" : 0
+    },
+    "Audio" : {
+        "Output Device" : "idonkno",
+        "Master" : 0,
+        "Master Window Inactive" : 0,
+        "Effect" : 0,
+        "Music" : 0
+    },
+    "Gameplay" : {
+        "General" : {
+
+        },
+        "Osu" : {
+
+        },
+        "Osu Mania" : {
+            "Scrolling Direction" : "Down",
+            "Scroll Speed" : ""
+
+        },
+        "Osu Taiko" : {
+
+        },
+        "Osu Catch" : {
+
+        }
+    }
+}

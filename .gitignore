@@ -1,1 +1,10 @@
 /build/
+/debug_build/
+/compile_commands.json
+*.log
+*log.txt
+log_file.txt
+logs/
+nohup.out
+*.kate-swp
+*.swp

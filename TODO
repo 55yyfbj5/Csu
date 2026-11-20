@@ -1,0 +1,26 @@
+## Project TODO
+
+### P1: Make the app usable
+- [ ] Connect the window close event to the application loop. `_should_close` starts false and is never updated, so the loop has no visible normal exit path.
+- [ ] Handle initialization and runtime errors in `main` and `Application::run` instead of proceeding after failed initialization or ignoring update errors.
+- [ ] Parse `.osu` files by section, especially `[HitObjects]`; validate fields before indexing. The packaged beatmap has headers and metadata that the current parser processes as hit objects.
+- [ ] Fix resource-pool allocation and handle validation together: check free-slot availability, keep handle fields consistent, validate index and generation, and make freeing return slots safely.
+- [ ] Implement audio operations that currently report success without doing work: unload, pause, volume, speed, seek, and current-time query. Confirm whether large files should use streaming.
+- [ ] Implement a proper constructor for the Application class
+- [ ] Replace the constructors of the renderer, audio manager, and window with named constructors.
+- [ ] Check whether replacing all constructors for named constructors is viable/idiomatic/readable.
+
+### P2: Complete the core gameplay path
+- [ ] Implement note-to-render coordinate mapping and handle times outside the note range safely.
+- [ ] Connect beatmap loading, audio playback time, input, and note rendering into an actual gameplay loop; rendering currently only clears the window.
+- [ ] Add focused tests for standard and malformed beatmaps, resource-pool exhaustion and stale handles, audio error paths, and application shutdown.
+
+### P3: Improve project reliability and clarity
+- [ ] Pin `raylib-cpp` to a fixed release or commit instead of the moving `master` branch.
+- [ ] Make CMake source discovery reliably reconfigure when source files are added.
+- [ ] Expand the README with build prerequisites, build/run steps, asset expectations, and current project status.
+- [ ] Document the resource-pointer lifetime and ownership contract; decide whether callers should receive a pointer, reference, or another access type.
+- [ ] Review where `std::expected` is used and standardize error propagation and error-code translation.
+- [ ] Benchmark `std::expected<void, error>` against an enum return type before choosing a project-wide convention.
+
+I found no first-party test target or test suite. This is a review backlog in my response; I did not modify project files.

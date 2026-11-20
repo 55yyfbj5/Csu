@@ -1,0 +1,7 @@
+//returning a raw pointer to a Resource object in Resource_pool::assign. i dont know how
+pointer lifetime works or whether there is a better alternative(other than a reference wrapper)
+//my usage of std::expected when it is returned by a function
+//the Application class is a god class
+//my class initialization model is inconsistent(some classes follow a 'work from instantiation' sort of model, and other classes have an initialization method)
+//my renderer interface design
+//Application initializes SDL
